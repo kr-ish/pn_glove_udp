@@ -22,7 +22,7 @@
 #include <stdio.h>
 #include <strsafe.h>
 #include <WS2tcpip.h>
-#include "dynamixel.h"
+//#include "dynamixel.h"
 
 
 #ifdef _DEBUG
@@ -597,14 +597,14 @@ void Cdemo_MFCDlg::showBvhBoneInfo(SOCKET_REF sender, BvhDataHeader* header, flo
 			// ADDED CODE 2
 			float forearm_x = data[38 * 3 + 10], forearm_y = data[38 * 3 + 9], forearm_z = data[38 * 3 + 11];
 			float hand_x = data[39 * 3 + 10], hand_y = data[39 * 3 + 9], hand_z = data[39 * 3 + 11];
-			//float thumb_x = data[39 * 3 + 10], hand_y = data[39 * 3 + 9], hand_z = data[39 * 3 + 11];
+			float thumb_y = data[42 * 3 + 10];
 			float index_z = data[45 * 3 + 11];
 			float middle_z = data[50 * 3 + 11];
 			float ring_z = data[54 * 3 + 11];
 			float pinky_z = data[58 * 3 + 11];
 
 			//send over UDP
-			string tmp = to_string(forearm_x) + " " + to_string(forearm_y) + " " + to_string(forearm_z) + " " + to_string(hand_x) + " " + to_string(hand_y) + " " + to_string(hand_z) + " " + to_string(index_z) + " " + to_string(middle_z) + " " + to_string(ring_z) + " " + to_string(pinky_z);
+			string tmp = to_string(forearm_x) + " " + to_string(forearm_y) + " " + to_string(forearm_z) + " " + to_string(hand_x) + " " + to_string(hand_y) + " " + to_string(hand_z) + " " + to_string(thumb_y) + " " + to_string(index_z) + " " + to_string(middle_z) + " " + to_string(ring_z) + " " + to_string(pinky_z);
 			//string tmp = "data";
 			strcpy_s(message, tmp.c_str());
 			//send message
